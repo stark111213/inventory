@@ -16,8 +16,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
+// import { useRouter } from "next/router";
 
 export function NavUser({
   user,
@@ -29,6 +30,7 @@ export function NavUser({
   };
 }) {
   const { isMobile } = useSidebar();
+  const router = useRouter();
 
   return (
     <SidebarMenu>
@@ -84,7 +86,7 @@ export function NavUser({
           </DropdownMenu>
         ) : (
           <SidebarMenuButton
-            onClick={() => redirect("/login")}
+            onClick={() => router.push("/login")}
             className="justify-center bg-accent-main hover:bg-accent-main active:bg-accent-main"
           >
             Log In
