@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { GalleryVerticalEnd, Home } from "lucide-react";
+import { GalleryVerticalEnd, LayoutDashboard } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -21,14 +21,14 @@ const merriweather = Merriweather_Sans({ subsets: ["latin"] });
 const data = {
   navMain: [
     {
-      title: "Home",
+      title: "Dashboard",
       url: "/",
-      icon: Home,
+      icon: LayoutDashboard,
       isActive: false,
     },
     {
-      title: "Inventory",
-      url: "/inventory",
+      title: "Inventories",
+      url: "/inventories",
       icon: GalleryVerticalEnd,
       isActive: false,
     },
