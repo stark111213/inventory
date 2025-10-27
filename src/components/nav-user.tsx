@@ -1,6 +1,6 @@
 "use client";
 
-import { BadgeCheck, ChevronsUpDown, LogOut } from "lucide-react";
+import { BadgeCheck, ChevronsUpDown, LogIn, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -16,9 +16,8 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { redirect, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-// import { useRouter } from "next/router";
 
 export function NavUser({
   user,
@@ -29,8 +28,9 @@ export function NavUser({
     avatar: string;
   };
 }) {
-  const { isMobile } = useSidebar();
+  const { isMobile, state } = useSidebar();
   const router = useRouter();
+  const isCollapsed = state === "collapsed";
 
   return (
     <SidebarMenu>
@@ -89,7 +89,7 @@ export function NavUser({
             onClick={() => router.push("/login")}
             className="justify-center bg-accent-main hover:bg-accent-main active:bg-accent-main"
           >
-            Log In
+            {isCollapsed ? <LogIn className="h-5 w-5" /> : "Log In"}
           </SidebarMenuButton>
         )}
       </SidebarMenuItem>

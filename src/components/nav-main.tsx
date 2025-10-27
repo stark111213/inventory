@@ -2,13 +2,13 @@
 
 import { type LucideIcon } from "lucide-react";
 
-import { Collapsible } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { usePathname, useRouter } from "next/navigation";
 
 export function NavMain({
   items,
@@ -24,30 +24,28 @@ export function NavMain({
     }[];
   }[];
 }) {
+  const path = usePathname();
+  const route = useRouter();
+
   return (
     <SidebarGroup>
       <SidebarMenu>
         {items.map((item) => (
-          <Collapsible
-            key={item.title}
-            asChild
-            defaultOpen={item.isActive}
-            className="group/collapsible"
-          >
-            <SidebarMenuItem>
-              <SidebarMenuButton
-                tooltip={item.title}
-                className={
-                  item.isActive
-                    ? "border-l-3 rounded-tl-none rounded-bl-none border-accent-main"
-                    : ""
-                }
-              >
-                {item.icon && <item.icon />}
-                <span>{item.title}</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          </Collapsible>
+          <SidebarMenuItem key={item.title}>
+            <SidebarMenuButton
+              tooltip={item.title}
+              isActive={path == item.url}
+              className={
+                path == item.url
+                  ? "border-l-3 rounded-tl-none rounded-bl-none border-accent-main"
+                  : "border-l-3 rounded-tl-none rounded-bl-none border-main-dark"
+              }
+              onClick={() => route.push(item.url)}
+            >
+              {item.icon && <item.icon />}
+              <span>{item.title}</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         ))}
       </SidebarMenu>
     </SidebarGroup>

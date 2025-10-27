@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Home } from "lucide-react";
+import { GalleryVerticalEnd, Home } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
 import { NavUser } from "@/components/nav-user";
@@ -24,7 +24,13 @@ const data = {
       title: "Home",
       url: "/",
       icon: Home,
-      isActive: true,
+      isActive: false,
+    },
+    {
+      title: "Inventory",
+      url: "/inventory",
+      icon: GalleryVerticalEnd,
+      isActive: false,
     },
   ],
 };
