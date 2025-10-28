@@ -1,6 +1,8 @@
 import "../globals.css";
 
 import { AppSidebar } from "@/components/app-sidebar";
+import Search from "@/components/search";
+
 import {
   SidebarInset,
   SidebarProvider,
@@ -24,6 +26,9 @@ export default function RootLayout({
             <div className="flex flex-1 flex-col bg-main-dark gap-4 p-4">
               <SidebarTrigger className="md:hidden text-white" />
               <div className="bg-main-light min-h-[100vh] flex-1 flex flex-col rounded-3xl md:min-h-min p-7">
+                <div className="flex justify-end">
+                  <Search />
+                </div>
                 {children}
               </div>
             </div>
