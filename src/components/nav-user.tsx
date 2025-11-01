@@ -45,7 +45,8 @@ export function NavUser({
                 <Avatar className="h-8 w-8 rounded-2xl">
                   <AvatarImage src={user.avatar} alt={user.name} />
                   <AvatarFallback className="rounded-2xl bg-accent-main">
-                    S
+                    {user.name.charAt(0)}
+                    {user.name.split(" ")[1].charAt(0)}
                   </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
@@ -65,7 +66,10 @@ export function NavUser({
                 <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                   <Avatar className="h-8 w-8 rounded-lg">
                     <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                    <AvatarFallback className="rounded-lg">
+                      {user.name.charAt(0)}
+                      {user.name.split(" ")[1].charAt(0)}
+                    </AvatarFallback>
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
                     <span className="truncate font-medium">{user.name}</span>
@@ -80,7 +84,7 @@ export function NavUser({
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => signOut()}>
                 <LogOut />
-                Log out
+                Sign out
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -89,7 +93,7 @@ export function NavUser({
             onClick={() => router.push("/login")}
             className="justify-center bg-accent-main hover:bg-accent-main active:bg-accent-main"
           >
-            {isCollapsed ? <LogIn className="h-5 w-5" /> : "Log In"}
+            {isCollapsed ? <LogIn className="h-5 w-5" /> : "Sign In"}
           </SidebarMenuButton>
         )}
       </SidebarMenuItem>

@@ -26,12 +26,12 @@ const data = {
       icon: LayoutDashboard,
       isActive: false,
     },
-    {
-      title: "Inventories",
-      url: "/inventories",
-      icon: GalleryVerticalEnd,
-      isActive: false,
-    },
+    // {
+    //   title: "Inventories",
+    //   url: "/inventories",
+    //   icon: GalleryVerticalEnd,
+    //   isActive: false,
+    // },
   ],
 };
 

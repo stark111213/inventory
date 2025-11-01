@@ -24,7 +24,7 @@ export async function LoginForm({
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
           <CardDescription>
-            Login with your Google or Github account
+            Sign in with your Google or Github account
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -45,7 +45,7 @@ export async function LoginForm({
                       fill="currentColor"
                     />
                   </svg>
-                  Login with Google
+                  Sign in with Google
                 </Button>
                 <Button
                   variant="outline"
@@ -61,7 +61,7 @@ export async function LoginForm({
                       fill="currentColor"
                     />
                   </svg>
-                  Login with Github
+                  Sign in with Github
                 </Button>
               </Field>
             </FieldGroup>

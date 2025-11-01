@@ -16,9 +16,12 @@ export default async function Profile() {
 
       <div className="flex mt-15">
         <div className="mr-10 mb-5">
-          <Avatar className="size-25">
+          <Avatar className="size-25 border">
             <AvatarImage src={user?.image || undefined} />
-            <AvatarFallback>CN</AvatarFallback>
+            <AvatarFallback className="w-full text-center self-center text-5xl">
+              {user?.name?.charAt(0)}
+              {user?.name?.split(" ")[1].charAt(0)}
+            </AvatarFallback>
           </Avatar>
         </div>
         <div>

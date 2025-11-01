@@ -8,7 +8,15 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
+
+export const metadata: Metadata = {
+  title: "Inventory",
+  icons: {
+    icon: "/gallery-vertical-end.svg",
+  },
+};
 
 export default function RootLayout({
   children,
