@@ -90,7 +90,7 @@ export function NavUser({
           </DropdownMenu>
         ) : (
           <SidebarMenuButton
-            onClick={() => router.push("/login")}
+            onClick={() => router.push("/signin")}
             className="justify-center bg-accent-main hover:bg-accent-main active:bg-accent-main"
           >
             {isCollapsed ? <LogIn className="h-5 w-5" /> : "Sign In"}

@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import { EmptyOutline } from "@/components/empty-demo";
+import { EmptyOutline } from "@/components/empty-outline";
 import { DataTableDemo } from "@/components/table-demo";
 import { TypographyH1, TypographyH3 } from "@/components/typography";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";

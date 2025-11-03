@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Inventory" ALTER COLUMN "title" DROP NOT NULL,
+ALTER COLUMN "description" DROP NOT NULL,
+ALTER COLUMN "category" DROP NOT NULL,
+ALTER COLUMN "is_public" DROP NOT NULL;

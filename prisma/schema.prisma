@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client"
-  output   = "../generated/prisma"
+  output   = "../src/app/generated/prisma"
 }
 
 datasource db {
@@ -9,21 +9,25 @@ datasource db {
 }
 
 model User {
-  id               String     @id @default(uuid())
-  is_authenticated Boolean
-  name             String
-  email            String     @unique
-  role             Role       @default(USER)
+  id           String     @id @default(cuid())
+  name         String
+  email        String     @unique
+  role         Role       @default(USER)
   //
-  inventory        Inventory? @relation(fields: [inventory_id], references: [id])
-  inventory_id     String?
+  inventory    Inventory? @relation(fields: [inventory_id], references: [id])
+  inventory_id String?
   // 
-  posts            Post[]
-  liked_items      Item[]
+  posts        Post[]
+  liked_items  Item[]
+}
+
+enum Role {
+  USER
+  ADMIN
 }
 
 model Inventory {
-  id              String         @id @default(uuid())
+  id              String         @id @default(cuid())
   custom_id       String?        @unique
   creator_id      String
   created_at      DateTime
@@ -31,12 +35,12 @@ model Inventory {
   items           Item[]
   allowed_editors User[]
   // 
-  title           String
-  description     String
-  category        Category
+  title           String?
+  description     String?
+  category        Category?
   image_url       String?
   tags            String[]
-  is_public       Boolean
+  is_public       Boolean?
   // 
   string_field    StringField[]
   numeric_field   NumericField[]
@@ -45,8 +49,14 @@ model Inventory {
   version         Int
 }
 
+enum Category {
+  Equipment
+  Books
+  Other
+}
+
 model StringField {
-  id            String          @id @default(uuid())
+  id            String          @id @default(cuid())
   content       String
   type          StringFieldType
   // 
@@ -63,7 +73,7 @@ enum StringFieldType {
 }
 
 model NumericField {
-  id            String     @id @default(uuid())
+  id            String     @id @default(cuid())
   content       Float
   // 
   meta_data     FieldMeta  @relation(fields: [field_meta_id], references: [id])
@@ -73,7 +83,7 @@ model NumericField {
 }
 
 model BooleanField {
-  id            String     @id @default(uuid())
+  id            String     @id @default(cuid())
   content       Boolean
   // 
   meta_data     FieldMeta  @relation(fields: [field_meta_id], references: [id])
@@ -83,7 +93,7 @@ model BooleanField {
 }
 
 model FieldMeta {
-  id           String        @id @default(uuid())
+  id           String        @id @default(cuid())
   title        String
   description  String
   state        Boolean
@@ -94,7 +104,7 @@ model FieldMeta {
 }
 
 model Item {
-  id           String     @id @default(uuid())
+  id           String     @id @default(cuid())
   custom_id    String?
   created_at   DateTime
   name         String
@@ -112,21 +122,10 @@ model Item {
 }
 
 model Post {
-  id         String   @id @default(uuid())
+  id         String   @id @default(cuid())
   created_at DateTime
   content    String
   // 
   creator    User?    @relation(fields: [creator_id], references: [id])
   creator_id String?
-}
-
-enum Role {
-  USER
-  ADMIN
-}
-
-enum Category {
-  Equipment
-  Books
-  Other
 }
