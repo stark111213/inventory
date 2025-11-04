@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import "../globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Sign In",
@@ -14,8 +15,18 @@ export default function AuthLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html>
-      <body> {children}</body>
+    <html suppressHydrationWarning>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {" "}
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

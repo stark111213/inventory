@@ -288,6 +288,7 @@ export type InventoryOrderByWithRelationInput = {
 export type InventoryWhereUniqueInput = Prisma.AtLeast<{
   id?: string
   custom_id?: string
+  id_creator_id?: Prisma.InventoryIdCreator_idCompoundUniqueInput
   AND?: Prisma.InventoryWhereInput | Prisma.InventoryWhereInput[]
   OR?: Prisma.InventoryWhereInput[]
   NOT?: Prisma.InventoryWhereInput | Prisma.InventoryWhereInput[]
@@ -305,7 +306,7 @@ export type InventoryWhereUniqueInput = Prisma.AtLeast<{
   string_field?: Prisma.StringFieldListRelationFilter
   numeric_field?: Prisma.NumericFieldListRelationFilter
   boolean_field?: Prisma.BooleanFieldListRelationFilter
-}, "id" | "custom_id">
+}, "id" | "custom_id" | "id_creator_id">
 
 export type InventoryOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
@@ -472,6 +473,11 @@ export type StringNullableListFilter<$PrismaModel = never> = {
   hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
   hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
   isEmpty?: boolean
+}
+
+export type InventoryIdCreator_idCompoundUniqueInput = {
+  id: string
+  creator_id: string
 }
 
 export type InventoryCountOrderByAggregateInput = {

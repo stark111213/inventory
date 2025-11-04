@@ -5,7 +5,7 @@ import SettingsTab from "./settings-tab";
 export default function InventoryTabs() {
   return (
     <Tabs defaultValue="items">
-      <TabsList className="w-full mb-2 bg-main-light">
+      <TabsList className="w-full mb-2 bg-main-light dark:bg-main-dark">
         <TabsTrigger value="items">Items</TabsTrigger>
         <TabsTrigger value="chat">Chat</TabsTrigger>
         <TabsTrigger value="settings">Settings</TabsTrigger>

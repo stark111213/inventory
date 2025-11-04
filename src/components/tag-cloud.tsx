@@ -18,7 +18,7 @@ export default function TagCloudContainer() {
   return (
     <div className="flex-2 w-full ml-10 flex flex-col mt-12">
       <TypographyH3 className="w-full text-center mb-3">#tags</TypographyH3>
-      <ScrollArea className="max-h-100 rounded-2xl border p-2">
+      <ScrollArea className="max-h-100 rounded-2xl border p-2 dark:border-gray-700">
         <TagCloud
           className="flex justify-center flex-wrap"
           minSize={12}

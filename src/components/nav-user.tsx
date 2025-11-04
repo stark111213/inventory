@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/sidebar";
 import { useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
+import { ModeToggle } from "./mode-toggle";
 
 export function NavUser({
   user,
@@ -78,11 +79,18 @@ export function NavUser({
                 </div>
               </DropdownMenuLabel>
 
-              <DropdownMenuItem onClick={() => router.push("/profile")}>
+              <DropdownMenuItem
+                className="hover:dark:bg-accent-light"
+                onClick={() => router.push("/profile")}
+              >
                 <BadgeCheck />
                 Account
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => signOut()}>
+
+              <DropdownMenuItem
+                className="hover:dark:bg-accent-light"
+                onClick={() => signOut()}
+              >
                 <LogOut />
                 Sign out
               </DropdownMenuItem>

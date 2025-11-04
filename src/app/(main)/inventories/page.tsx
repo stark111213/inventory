@@ -12,7 +12,7 @@ export default function Inventories() {
           const inventoryId = await CreateInventory();
           redirect(`/inventories/${inventoryId}`);
         }}
-        className="bg-accent-main hover:bg-accent-light"
+        className="bg-accent-main hover:bg-accent-light dark:text-white"
       >
         Create an Inventory
       </Button>

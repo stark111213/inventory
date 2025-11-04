@@ -10,6 +10,8 @@ import {
 } from "@/components/ui/sidebar";
 import { Metadata } from "next";
 import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export const metadata: Metadata = {
   title: "Inventory",
@@ -24,24 +26,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html>
+    <html suppressHydrationWarning>
       <body>
-        <SidebarProvider>
-          <SessionProvider>
-            <AppSidebar />
-          </SessionProvider>
-          <SidebarInset>
-            <div className="flex flex-1 flex-col bg-main-dark gap-4 p-4">
-              <SidebarTrigger className="md:hidden text-white" />
-              <div className="bg-white min-h-[100vh] flex-1 flex flex-col rounded-3xl md:min-h-min p-7">
-                <div className="flex justify-end">
-                  <Search />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SidebarProvider>
+            <SessionProvider>
+              <AppSidebar />
+            </SessionProvider>
+            <SidebarInset>
+              <div className="flex flex-1 flex-col bg-main-dark gap-4 p-4">
+                <SidebarTrigger className="md:hidden text-white" />
+                <div className="bg-white dark:bg-main-dark-theme min-h-[100vh] flex-1 flex flex-col rounded-3xl md:min-h-min p-7">
+                  <div className="flex justify-end gap-2">
+                    <ModeToggle />
+                    <Search />
+                  </div>
+                  {children}
                 </div>
-                {children}
               </div>
-            </div>
-          </SidebarInset>
-        </SidebarProvider>
+            </SidebarInset>
+          </SidebarProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
