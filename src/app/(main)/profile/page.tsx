@@ -22,7 +22,6 @@ export default async function Profile() {
             <AvatarImage src={user?.image || undefined} />
             <AvatarFallback className="w-full text-center self-center text-5xl">
               {user?.name?.charAt(0)}
-              {user?.name?.split(" ")[1].charAt(0)}
             </AvatarFallback>
           </Avatar>
         </div>
@@ -37,8 +36,6 @@ export default async function Profile() {
       </div>
       <Separator className="bg-main-dark mb-12 dark: bg-gray-500" />
 
-      {/* <TypographyH3">Owned</TypographyH3>
-      <DataTableDemo /> */}
       <EmptyOutline />
 
       <TypographyH3 className="mt-12">Have Write Access</TypographyH3>

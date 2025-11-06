@@ -46,7 +46,6 @@ export function NavUser({
                   <AvatarImage src={user.avatar} alt={user.name} />
                   <AvatarFallback className="rounded-2xl bg-accent-main">
                     {user.name.charAt(0)}
-                    {user.name.split(" ")[1].charAt(0)}
                   </AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
@@ -68,7 +67,6 @@ export function NavUser({
                     <AvatarImage src={user.avatar} alt={user.name} />
                     <AvatarFallback className="rounded-lg">
                       {user.name.charAt(0)}
-                      {user.name.split(" ")[1].charAt(0)}
                     </AvatarFallback>
                   </Avatar>
                   <div className="grid flex-1 text-left text-sm leading-tight">
