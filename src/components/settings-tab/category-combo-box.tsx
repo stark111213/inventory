@@ -19,23 +19,25 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Category } from "@/app/generated/prisma/enums";
-import GetSetCategory from "@/app/api/get-set-category";
+import GetCurrentCategory from "@/app/api/get-current-category";
+import { useParams } from "next/navigation";
+import SetCategory from "@/app/api/set-category";
 
 const categories = Object.keys(Category);
 
-export function ComboBox({ inventoryId }: { inventoryId: string }) {
+export function ComboBox() {
   const [open, setOpen] = React.useState(false);
   const [value, setValue] = React.useState("");
+  const [isPending, startTransition] = React.useTransition();
+  const inventoryId = useParams<{ inventoryId: string }>();
 
-  async function UpdateCategory({
-    currentValue,
-    inventoryId,
-  }: {
-    currentValue: string;
-    inventoryId: string;
-  }) {
-    GetSetCategory({ currentValue, inventoryId });
-  }
+  React.useEffect(() => {
+    async function fetchCategory() {
+      const category = await GetCurrentCategory(inventoryId.inventoryId);
+      setValue(category.valueOf());
+    }
+    fetchCategory();
+  }, [inventoryId]);
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -46,9 +48,7 @@ export function ComboBox({ inventoryId }: { inventoryId: string }) {
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
-          {value
-            ? categories.find((category) => category.valueOf())
-            : "Select category..."}
+          {value || "Select category..."}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -64,7 +64,9 @@ export function ComboBox({ inventoryId }: { inventoryId: string }) {
                   value={category.valueOf()}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue);
-                    UpdateCategory({ inventoryId, currentValue });
+                    startTransition(() =>
+                      SetCategory(currentValue, inventoryId.inventoryId)
+                    );
                     setOpen(false);
                   }}
                 >

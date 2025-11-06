@@ -1,6 +1,5 @@
 import { DataTableDemo } from "@/components/table-demo";
 import TagCloudContainer from "@/components/tag-cloud";
-import TagCloud from "@/components/tag-cloud";
 import { TypographyH1, TypographyH3 } from "@/components/typography";
 
 export default async function Home() {

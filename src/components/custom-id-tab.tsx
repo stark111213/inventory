@@ -1,5 +1,5 @@
 import { Input } from "./ui/input";
-import { ComboBox } from "./category-combo-box";
+import { ComboBox } from "./settings-tab/category-combo-box";
 import { Button } from "./ui/button";
 import { TabsContent } from "./ui/tabs";
 

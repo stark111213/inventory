@@ -6,7 +6,7 @@ export default async function Inventory() {
   return (
     <div className="flex flex-col">
       <div className="flex items-end gap-5 mb-10">
-        <TypographyH1>New Inventory 1</TypographyH1>
+        <TypographyH1>title</TypographyH1>
         <Badge className="bg-emerald-100 text-green-800">
           All changes saved
         </Badge>

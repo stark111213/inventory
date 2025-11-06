@@ -1,7 +1,5 @@
-import { PrismaClient } from "@/app/generated/prisma/client";
+import prisma from "@/client";
 import { User } from "next-auth";
-
-const prisma = new PrismaClient();
 
 export default async function CreateUser(user: User) {
   if (!user?.email) return;

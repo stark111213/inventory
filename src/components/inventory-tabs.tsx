@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CustomIDTab from "./custom-id-tab";
-import SettingsTab from "./settings-tab";
+import SettingsTab from "./settings-tab/settings-tab";
 
 export default function InventoryTabs() {
   return (

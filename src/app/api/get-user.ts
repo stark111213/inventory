@@ -1,9 +1,8 @@
-import { PrismaClient } from "@/app/generated/prisma/client";
 import { auth } from "@/auth";
+import prisma from "@/client";
 
 export default async function GetUser() {
   const session = await auth();
-  const prisma = new PrismaClient();
   const sessionUser = session?.user;
 
   const prismaUser = await prisma.user.findUnique({

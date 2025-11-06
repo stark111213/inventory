@@ -15,7 +15,6 @@ import {
 import Link from "next/link";
 import { Merriweather_Sans } from "next/font/google";
 import PassUser from "../app/api/pass-user";
-import { redirect } from "next/navigation";
 
 const merriweather = Merriweather_Sans({ subsets: ["latin"] });
 
