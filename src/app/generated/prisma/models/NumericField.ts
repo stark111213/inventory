@@ -218,6 +218,7 @@ export type NumericFieldOrderByWithRelationInput = {
   inventory_id?: Prisma.SortOrderInput | Prisma.SortOrder
   meta_data?: Prisma.FieldMetaOrderByWithRelationInput
   inventory?: Prisma.InventoryOrderByWithRelationInput
+  _relevance?: Prisma.NumericFieldOrderByRelevanceInput
 }
 
 export type NumericFieldWhereUniqueInput = Prisma.AtLeast<{
@@ -309,6 +310,12 @@ export type NumericFieldListRelationFilter = {
 
 export type NumericFieldOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type NumericFieldOrderByRelevanceInput = {
+  fields: Prisma.NumericFieldOrderByRelevanceFieldEnum | Prisma.NumericFieldOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type NumericFieldCountOrderByAggregateInput = {

@@ -14,7 +14,9 @@ export default function CustomIDTab() {
         drag elements out of the form to delete them.
       </p>
       <div className="flex mt-3">
-        <span className="text-gray-500 text-2xl mr-2">Exmaple:</span>
+        <span className="text-gray-500 text-2xl mr-2 dark:gray-50">
+          Current:
+        </span>
         <h4 className="text-2xl font-semibold">&#x1F4DA;-A7E3A-013_2025</h4>
       </div>
 
@@ -26,9 +28,7 @@ export default function CustomIDTab() {
         A piece of unchanging text - you can use Unicode emoji.
       </p> */}
 
-      <Button className="mt-3 w-fit bg-white border border-accent-main text-accent-main hover:bg-main-light">
-        Add element
-      </Button>
+      <Button className="mt-5">Add element</Button>
     </TabsContent>
   );
 }

@@ -184,6 +184,7 @@ export type BooleanFieldOrderByWithRelationInput = {
   inventory_id?: Prisma.SortOrderInput | Prisma.SortOrder
   meta_data?: Prisma.FieldMetaOrderByWithRelationInput
   inventory?: Prisma.InventoryOrderByWithRelationInput
+  _relevance?: Prisma.BooleanFieldOrderByRelevanceInput
 }
 
 export type BooleanFieldWhereUniqueInput = Prisma.AtLeast<{
@@ -273,6 +274,12 @@ export type BooleanFieldListRelationFilter = {
 
 export type BooleanFieldOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type BooleanFieldOrderByRelevanceInput = {
+  fields: Prisma.BooleanFieldOrderByRelevanceFieldEnum | Prisma.BooleanFieldOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type BooleanFieldCountOrderByAggregateInput = {

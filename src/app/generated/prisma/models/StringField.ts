@@ -193,6 +193,7 @@ export type StringFieldOrderByWithRelationInput = {
   inventory_id?: Prisma.SortOrderInput | Prisma.SortOrder
   meta_data?: Prisma.FieldMetaOrderByWithRelationInput
   inventory?: Prisma.InventoryOrderByWithRelationInput
+  _relevance?: Prisma.StringFieldOrderByRelevanceInput
 }
 
 export type StringFieldWhereUniqueInput = Prisma.AtLeast<{
@@ -292,6 +293,12 @@ export type StringFieldListRelationFilter = {
 
 export type StringFieldOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type StringFieldOrderByRelevanceInput = {
+  fields: Prisma.StringFieldOrderByRelevanceFieldEnum | Prisma.StringFieldOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type StringFieldCountOrderByAggregateInput = {

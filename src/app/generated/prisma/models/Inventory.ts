@@ -283,6 +283,7 @@ export type InventoryOrderByWithRelationInput = {
   string_field?: Prisma.StringFieldOrderByRelationAggregateInput
   numeric_field?: Prisma.NumericFieldOrderByRelationAggregateInput
   boolean_field?: Prisma.BooleanFieldOrderByRelationAggregateInput
+  _relevance?: Prisma.InventoryOrderByRelevanceInput
 }
 
 export type InventoryWhereUniqueInput = Prisma.AtLeast<{
@@ -472,6 +473,12 @@ export type StringNullableListFilter<$PrismaModel = never> = {
   hasEvery?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
   hasSome?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
   isEmpty?: boolean
+}
+
+export type InventoryOrderByRelevanceInput = {
+  fields: Prisma.InventoryOrderByRelevanceFieldEnum | Prisma.InventoryOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type InventoryCountOrderByAggregateInput = {

@@ -186,6 +186,7 @@ export type FieldMetaOrderByWithRelationInput = {
   StringField?: Prisma.StringFieldOrderByWithRelationInput
   NumericField?: Prisma.NumericFieldOrderByWithRelationInput
   BooleanField?: Prisma.BooleanFieldOrderByWithRelationInput
+  _relevance?: Prisma.FieldMetaOrderByRelevanceInput
 }
 
 export type FieldMetaWhereUniqueInput = Prisma.AtLeast<{
@@ -285,6 +286,12 @@ export type FieldMetaUncheckedUpdateManyInput = {
 export type FieldMetaScalarRelationFilter = {
   is?: Prisma.FieldMetaWhereInput
   isNot?: Prisma.FieldMetaWhereInput
+}
+
+export type FieldMetaOrderByRelevanceInput = {
+  fields: Prisma.FieldMetaOrderByRelevanceFieldEnum | Prisma.FieldMetaOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type FieldMetaCountOrderByAggregateInput = {

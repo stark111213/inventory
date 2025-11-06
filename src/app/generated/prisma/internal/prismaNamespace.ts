@@ -1164,6 +1164,86 @@ export const NullsOrder = {
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
+export const UserOrderByRelevanceFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  inventory_id: 'inventory_id'
+} as const
+
+export type UserOrderByRelevanceFieldEnum = (typeof UserOrderByRelevanceFieldEnum)[keyof typeof UserOrderByRelevanceFieldEnum]
+
+
+export const InventoryOrderByRelevanceFieldEnum = {
+  id: 'id',
+  custom_id: 'custom_id',
+  creator_id: 'creator_id',
+  title: 'title',
+  description: 'description',
+  image_url: 'image_url',
+  tags: 'tags'
+} as const
+
+export type InventoryOrderByRelevanceFieldEnum = (typeof InventoryOrderByRelevanceFieldEnum)[keyof typeof InventoryOrderByRelevanceFieldEnum]
+
+
+export const StringFieldOrderByRelevanceFieldEnum = {
+  id: 'id',
+  content: 'content',
+  field_meta_id: 'field_meta_id',
+  inventory_id: 'inventory_id'
+} as const
+
+export type StringFieldOrderByRelevanceFieldEnum = (typeof StringFieldOrderByRelevanceFieldEnum)[keyof typeof StringFieldOrderByRelevanceFieldEnum]
+
+
+export const NumericFieldOrderByRelevanceFieldEnum = {
+  id: 'id',
+  field_meta_id: 'field_meta_id',
+  inventory_id: 'inventory_id'
+} as const
+
+export type NumericFieldOrderByRelevanceFieldEnum = (typeof NumericFieldOrderByRelevanceFieldEnum)[keyof typeof NumericFieldOrderByRelevanceFieldEnum]
+
+
+export const BooleanFieldOrderByRelevanceFieldEnum = {
+  id: 'id',
+  field_meta_id: 'field_meta_id',
+  inventory_id: 'inventory_id'
+} as const
+
+export type BooleanFieldOrderByRelevanceFieldEnum = (typeof BooleanFieldOrderByRelevanceFieldEnum)[keyof typeof BooleanFieldOrderByRelevanceFieldEnum]
+
+
+export const FieldMetaOrderByRelevanceFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description'
+} as const
+
+export type FieldMetaOrderByRelevanceFieldEnum = (typeof FieldMetaOrderByRelevanceFieldEnum)[keyof typeof FieldMetaOrderByRelevanceFieldEnum]
+
+
+export const ItemOrderByRelevanceFieldEnum = {
+  id: 'id',
+  custom_id: 'custom_id',
+  name: 'name',
+  inventory_id: 'inventory_id',
+  userId: 'userId'
+} as const
+
+export type ItemOrderByRelevanceFieldEnum = (typeof ItemOrderByRelevanceFieldEnum)[keyof typeof ItemOrderByRelevanceFieldEnum]
+
+
+export const PostOrderByRelevanceFieldEnum = {
+  id: 'id',
+  content: 'content',
+  creator_id: 'creator_id'
+} as const
+
+export type PostOrderByRelevanceFieldEnum = (typeof PostOrderByRelevanceFieldEnum)[keyof typeof PostOrderByRelevanceFieldEnum]
+
+
 
 /**
  * Field references

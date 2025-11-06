@@ -1,6 +1,6 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { ComboBox } from "./category-combo-box";
 import { TabsContent } from "../ui/tabs";
 import { Textarea } from "../ui/textarea";
@@ -23,6 +23,15 @@ export default function SettingsTab() {
     undefined
   );
 
+  const router = useRouter();
+
+  async function handleSubmit(formData: FormData) {
+    await updateSettingsTab(inventoryId.inventoryId, formData);
+    const inv = await GetInventory(inventoryId.inventoryId);
+    setTitle(inv?.title);
+    setDescription(inv?.description);
+  }
+
   useEffect(() => {
     async function getData() {
       const inv = await GetInventory(inventoryId.inventoryId);
@@ -44,7 +53,8 @@ export default function SettingsTab() {
     <TabsContent value="settings" className="w-xl mt-5">
       <form
         className="flex flex-col gap-5"
-        action={updateSettingsTab.bind(null, inventoryId.inventoryId)}
+        // action={updateSettingsTab.bind(null, inventoryId.inventoryId)}
+        action={handleSubmit}
       >
         <Label>
           Title
@@ -87,7 +97,11 @@ export default function SettingsTab() {
           </Button>
         </div>
 
-        <Button type="submit" className="w-fit">
+        <Button
+          type="submit"
+          className="w-fit"
+          onClick={() => router.refresh()}
+        >
           Save changes
         </Button>
       </form>

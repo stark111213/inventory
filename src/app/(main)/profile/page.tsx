@@ -3,7 +3,9 @@ import { EmptyOutline } from "@/components/empty-outline";
 import { DataTableDemo } from "@/components/table-demo";
 import { TypographyH1, TypographyH3 } from "@/components/typography";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 
 export default async function Profile() {
@@ -27,10 +29,13 @@ export default async function Profile() {
         <div>
           <TypographyH3>{user?.name}</TypographyH3>
           <p>{user?.email}</p>
-          {/* isadmin? show admin badge or dont show anything */}
+          <div className="flex items-center space-x-2 mt-5">
+            <Switch id="role" />
+            <Label htmlFor="role">User</Label>
+          </div>
         </div>
       </div>
-      <Separator className="bg-main-dark mb-12" />
+      <Separator className="bg-main-dark mb-12 dark: bg-gray-500" />
 
       {/* <TypographyH3">Owned</TypographyH3>
       <DataTableDemo /> */}

@@ -11,7 +11,6 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-  CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
 
@@ -25,6 +24,7 @@ import { Kbd } from "@/components/ui/kbd";
 import { SearchIcon } from "lucide-react";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export default function Search() {
   const [open, setOpen] = React.useState(false);
@@ -40,6 +40,20 @@ export default function Search() {
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
   }, []);
+
+  const router = useRouter();
+  React.useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (open && e.code === "KeyP" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        router.push("/profile");
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, [open, router]);
 
   return (
     <Dialog>
@@ -58,11 +72,6 @@ export default function Search() {
         <CommandInput placeholder="Type a command or search..." />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          <CommandGroup heading="Suggestions">
-            {/* add stuff maybe */}
-          </CommandGroup>
-
-          <CommandSeparator />
 
           <CommandGroup heading="Settings">
             <CommandItem>

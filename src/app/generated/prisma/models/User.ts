@@ -195,6 +195,7 @@ export type UserOrderByWithRelationInput = {
   inventory?: Prisma.InventoryOrderByWithRelationInput
   posts?: Prisma.PostOrderByRelationAggregateInput
   liked_items?: Prisma.ItemOrderByRelationAggregateInput
+  _relevance?: Prisma.UserOrderByRelevanceInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -294,6 +295,12 @@ export type UserUncheckedUpdateManyInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string
   role?: Prisma.EnumRoleFieldUpdateOperationsInput | $Enums.Role
   inventory_id?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+}
+
+export type UserOrderByRelevanceInput = {
+  fields: Prisma.UserOrderByRelevanceFieldEnum | Prisma.UserOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type UserCountOrderByAggregateInput = {

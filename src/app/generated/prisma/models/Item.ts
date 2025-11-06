@@ -258,6 +258,7 @@ export type ItemOrderByWithRelationInput = {
   version?: Prisma.SortOrder
   inventory?: Prisma.InventoryOrderByWithRelationInput
   user?: Prisma.UserOrderByWithRelationInput
+  _relevance?: Prisma.ItemOrderByRelevanceInput
 }
 
 export type ItemWhereUniqueInput = Prisma.AtLeast<{
@@ -390,6 +391,12 @@ export type ItemListRelationFilter = {
 
 export type ItemOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type ItemOrderByRelevanceInput = {
+  fields: Prisma.ItemOrderByRelevanceFieldEnum | Prisma.ItemOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type ItemInventory_idCustom_idCompoundUniqueInput = {

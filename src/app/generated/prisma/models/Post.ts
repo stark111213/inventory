@@ -182,6 +182,7 @@ export type PostOrderByWithRelationInput = {
   content?: Prisma.SortOrder
   creator_id?: Prisma.SortOrderInput | Prisma.SortOrder
   creator?: Prisma.UserOrderByWithRelationInput
+  _relevance?: Prisma.PostOrderByRelevanceInput
 }
 
 export type PostWhereUniqueInput = Prisma.AtLeast<{
@@ -271,6 +272,12 @@ export type PostListRelationFilter = {
 
 export type PostOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
+}
+
+export type PostOrderByRelevanceInput = {
+  fields: Prisma.PostOrderByRelevanceFieldEnum | Prisma.PostOrderByRelevanceFieldEnum[]
+  sort: Prisma.SortOrder
+  search: string
 }
 
 export type PostCountOrderByAggregateInput = {
