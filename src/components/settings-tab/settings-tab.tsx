@@ -51,11 +51,7 @@ export default function SettingsTab() {
 
   return (
     <TabsContent value="settings" className="w-xl mt-5">
-      <form
-        className="flex flex-col gap-5"
-        // action={updateSettingsTab.bind(null, inventoryId.inventoryId)}
-        action={handleSubmit}
-      >
+      <form className="flex flex-col gap-5" action={handleSubmit}>
         <Label>
           Title
           <Input name="title" className="ml-16" defaultValue={title ?? ""} />

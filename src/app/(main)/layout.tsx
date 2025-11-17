@@ -37,19 +37,19 @@ export default function RootLayout({
           <SidebarProvider>
             <SessionProvider>
               <AppSidebar />
-            </SessionProvider>
-            <SidebarInset>
-              <div className="flex flex-1 flex-col bg-main-dark gap-4 p-4">
-                <SidebarTrigger className="md:hidden text-white" />
-                <div className="bg-white dark:bg-main-dark-theme min-h-[100vh] flex-1 flex flex-col rounded-3xl md:min-h-min p-7">
-                  <div className="flex justify-end gap-2">
-                    <ModeToggle />
-                    <Search />
+              <SidebarInset>
+                <div className="flex flex-1 flex-col bg-main-dark gap-4 p-4">
+                  <SidebarTrigger className="md:hidden text-white" />
+                  <div className="bg-white dark:bg-main-dark-theme min-h-[100vh] flex-1 flex flex-col rounded-3xl md:min-h-min p-7">
+                    <div className="flex justify-end gap-2">
+                      <ModeToggle />
+                      <Search />
+                    </div>
+                    {children}
                   </div>
-                  {children}
                 </div>
-              </div>
-            </SidebarInset>
+              </SidebarInset>
+            </SessionProvider>
           </SidebarProvider>
         </ThemeProvider>
       </body>

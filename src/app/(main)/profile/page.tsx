@@ -1,5 +1,7 @@
-import { auth } from "@/auth";
+"use client";
+
 import { EmptyOutline } from "@/components/empty-outline";
+import SalesForceForm from "@/components/salesforce-form";
 import { DataTableDemo } from "@/components/table-demo";
 import { TypographyH1, TypographyH3 } from "@/components/typography";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
@@ -7,9 +9,10 @@ import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { AvatarFallback } from "@radix-ui/react-avatar";
+import { useSession } from "next-auth/react";
 
-export default async function Profile() {
-  const session = await auth();
+export default function Profile() {
+  const { data: session } = useSession();
   const user = session?.user;
 
   return (
@@ -29,12 +32,14 @@ export default async function Profile() {
           <TypographyH3>{user?.name}</TypographyH3>
           <p>{user?.email}</p>
           <div className="flex items-center space-x-2 mt-5">
-            <Switch id="role" />
             <Label htmlFor="role">User</Label>
+            <Switch id="role" />
+
+            <SalesForceForm />
           </div>
         </div>
       </div>
-      <Separator className="bg-main-dark mb-12 dark: bg-gray-500" />
+      <Separator className="bg-main-dark mb-12 dark:bg-gray-500" />
 
       <EmptyOutline />
 
